@@ -20,6 +20,6 @@ def show_json_wishlist(request):
         data_json = BarangWishlist.objects.all()
         return HttpResponse(serializers.serialize("json", data_json), content_type="application/json")
 
-def show_json_by_id(request):
+def show_json_by_id(request, id):
         data_json_by_id = BarangWishlist.objects.filter(pk=id)
-        return HttpResponse(serializers.serialize("json_by_id", data_json_by_id), content_type="application/json_by_id")
+        return HttpResponse(serializers.serialize("json", data_json_by_id), content_type="application/json")
